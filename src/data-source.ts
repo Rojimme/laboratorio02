@@ -14,7 +14,7 @@ export const AppDataSource = new DataSource({
     port: 3306,
     username: "root",
     password: "root",
-    database: "dblab2",
+    database: "laboratorio2",
     synchronize: true,
     logging: false,
     entities: [Producto, Proveedor, Cliente, Vendedor, Cabecera_factura, Detalle_factura],

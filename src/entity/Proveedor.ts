@@ -1,20 +1,27 @@
-import { Column, Entity, PrimaryColumn, OneToMany} from "typeorm";
+
+import { Column, Entity, PrimaryColumn, OneToMany } from "typeorm";
 import { Producto } from "./Producto";
 
 @Entity()
-export class Proveedor{
-    @PrimaryColumn({ unique: true })
-    Codigo_proveedor:number;
-    @Column({ type: "varchar", length: 45, nullable: false })
-    Nombres_proveedor:string;
-    @Column({ type: "varchar", length: 45, nullable: false })
-    Apellidos_proveedor:string;
-    @Column({ type: "varchar", length: 100, nullable: false })
-    Direccion_proveedor:string;
-    @Column({ type: "varchar", length: 20, nullable: false})
-    Provincia_proveedor:string;
-    @Column({nullable: false})
-    Telefono_proveedor:number;
+export class Proveedor {
+    @PrimaryColumn()
+    Codigo_proveedor: number;
+
+    @Column({ length: 45, nullable: false })
+    Nombre_proveedor: string;
+
+    @Column({ length: 45, nullable: false })
+    Apellido_proveedor: string;
+
+    @Column({ length: 70, nullable: false })
+    Direccion_proveedor: string;
+
+    @Column({ length: 45, nullable: false })
+    Provincia_proveedor: string;
+
+    @Column({ nullable: false })
+    Telefono_proveedor: number;
+
     @OneToMany(() => Producto, (producto) => producto.proveedor)
     productos: Producto[]
 }
